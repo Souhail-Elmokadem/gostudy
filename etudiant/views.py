@@ -25,3 +25,5 @@ def etudiant_register(request):
         else:
               form = etudLoginForm()
         return render(request,'auth/etudiant/register.html',{'f':form})
+
+
