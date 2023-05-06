@@ -21,7 +21,8 @@ class etudiant(models.Model):
     
 
 class Enrollement(models.Model):
-    course = models.ForeignKey(course, null=True, on_delete=models.CASCADE)
+    cours = models.ForeignKey(course, null=True, on_delete=models.CASCADE)
     etudiant = models.ForeignKey(etudiant, null=True, on_delete=models.CASCADE)
+    datecreation = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return self.course.titre
+        return self.cours.titre

@@ -6,6 +6,9 @@
     {% include 'base/coursesHeader.html' %}
     <title>{{cours.titre}}</title></head>
 <body>
+    
+    
+    
     <!--Header Bar-->
     <div class="container-fluid bg-primary py-5 mb-5 page-header">
         <div class="container py-5">
@@ -47,7 +50,14 @@
             <div class="position-relative overflow-hidden">
                 <img class="img-fluid object-fit-cover border rounded" src="{{cours.cover.url}}" width="500" style="height:250px"  alt="">
                 <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                    <a href="" class="flex-shrink-0 btn btn-sm btn-danger px-5" style="border-radius: 30 30px 30px 30;">Enroll Now</a>
+                    {% if userEnrol == None %}
+                    <form action="{% url 'EnrollCourse' cours.id %}" method="post">
+                        {% csrf_token %}
+                    <a href="" class="flex-shrink-0 btn btn-sm btn-danger px-5" style="border-radius: 30 30px 30px 30;"><button type="submit" style="background-color:transparent;border:none;color:white;">Enroll Now</button> </a>
+                </form>
+                {% else %}
+                <a href="{% url 'ViewCourse' cours.id %}" class="flex-shrink-0 btn btn-sm btn-danger px-5" style="border-radius: 30 30px 30px 30;"><button type="submit" style="background-color:transparent;border:none;color:white;">View Course</button> </a>
+                    {% endif %}
                 </div>
             </div>
             <div class="text-center p-4 pb-0">
@@ -73,7 +83,9 @@
                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{cours.Enseignant}}</small>
                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{cours.duration}} Hrs</small>
                  
-                <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{cours.number_of_etudiants}} etudiants</small>
+                <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>
+                    {% if enrs.Tet == None %}0{% else %}{{enrs.Tet}}{% endif %}
+                     etudiants</small>
                 
             </div>
             

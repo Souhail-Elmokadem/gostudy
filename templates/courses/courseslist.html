@@ -9,7 +9,7 @@
     {% include 'base/coursesHeader.html' %}
     <title>GoStudy - Courses</title></head>
 <body>
-
+   
     <!-- Spinner Start -->
     {% comment %} <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -45,33 +45,7 @@
 
 
     <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
-                <h1 class="mb-5">Courses Categories</h1>
-            </div>
-            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 250px;">
-                <a class="position-relative d-block h-100 overflow-hidden" href="">
-                    <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                        <h5 class="m-0">Online Marketing</h5>
-                        <small class="text-primary">49 Courses</small>
-                    </div>
-                </a>
-            </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn"  style="min-height: 250px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Online Marketing</h5>
-                            <small class="text-primary">49 Courses</small>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Categories Start -->
 
 
@@ -117,7 +91,7 @@
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{c.Enseignant}}</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{c.duration}} Hrs</small>
                              
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{c.number_of_etudiants}} etudiants</small>
+                            <small class="flex-fill text-center py-2"><i class="fas fa-tags" style="color: #09bccd;position: relative;bottom:-1px;"></i><span class="m-1"></span>{{c.categorie}} </small>
                             
                         </div>
                     </div>

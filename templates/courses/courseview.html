@@ -1,0 +1,38 @@
+{% extends 'base/navbar.html' %}
+{% block nav %}
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    {% include 'base/coursesHeader.html' %}
+    <title>Watch - {{cours.titre}}</title></head>
+<body>
+    
+    {% for msg in messages %}
+    <h1>{{msg}}</h1>
+    {% endfor %}
+    <div class="d-flex justify-content-cente p-5">
+        <div class="card w-75">
+            <div class="card-body">
+                <h5 class="card-title">{{cours.titre}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Create on <span class="text-secondary">{{cours.datecreation.date}}</span></h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">This Course created By <span class="text-secondary">{{cours.Enseignant}}</span></h6>
+                <p class="card-text">{{cours.description}}</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <p class="text-body-secondary" style="color:#7CB4B8;">Tags :{% for tag in cours.tag.all %} {{tag}}, {% endfor %}</p> 
+              </div>
+           
+        </div>
+
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-6 wow fadeInUp p-5" data-wow-delay="0.1s">
+        <div class="course-item bg-light">
+            <video width="1280" height="720" controls>
+                <source src="{{cours.video.url}}" type="video/mp4">
+              </video>
+        </div>
+        </div>
+</body>
+</html>
+{% endblock nav %}
