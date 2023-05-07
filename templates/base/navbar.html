@@ -19,7 +19,7 @@
                     <a href="404.html" class="dropdown-item">404 Page</a>
                 </div>
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{% url 'getstarted' %}" class="nav-item nav-link">Teach on Gostady</a>
         </div>
         {% if user.is_authenticated %}
         <a href="{% url 'etudiant_register' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Hi {{user}} !<i class="fa fa-arrow-right ms-3"></i></a>
