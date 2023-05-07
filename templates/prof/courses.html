@@ -1,0 +1,58 @@
+{% extends 'base/prof/header.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Your Courses</h1>
+    <p class="mb-4">For create more courses you can go to Dashboard and<a target="_blank"
+            href="{% url 'dashboardprof' %}"> Get started !</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Courses</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Titre</th>
+                            <th>Categorie</th>
+                            <th>duration</th>
+                            <th>Start date</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Course</th>
+                            <th>Titre</th>
+                            <th>Categorie</th>
+                            <th>duration</th>
+                            <th>Start date</th>
+                            <th>Prix</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for cr in cours %}
+                        <tr>
+                            <td><img src="{{cr.cover.url}}" width=140 alt="" srcset=""></td>
+                            <td>{{cr.titre}}</td>
+                            <td>{{cr.categorie}}</td>
+                            <td>{{cr.duration}}</td>
+                            <td>{{cr.datecreation}}</td>
+                            <td>{{cr.prix}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

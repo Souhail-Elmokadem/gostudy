@@ -1,6 +1,5 @@
 
 from django import forms 
-from etudiant.models import Enrollement
-
+from .models import course
 
 
