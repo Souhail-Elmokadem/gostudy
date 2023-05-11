@@ -25,7 +25,9 @@ h2 {
 
 .half, .half .container > .row {
   height: 100vh;
-  min-height: 700px; }
+  min-height: 860px; }
+
+
 
 @media (max-width: 991.98px) {
   .half .bg {
@@ -52,8 +54,9 @@ h2 {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); }
 
 .half .bg {
-  background-size: cover;
-  background-position: center; }
+  background-position: center; 
+  background-attachment: fixed;
+}
 
 .half a {
   color: #888;

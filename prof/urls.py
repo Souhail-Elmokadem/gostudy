@@ -6,6 +6,7 @@ urlpatterns = [
     path('Dashboard',views.dashboardprof,name="dashboardprof"),
     path('Dashboard/courses',views.dashboardcourses,name="dashboardcourses"),
     path('Dashboard/createcourse',views.createcourse,name="createcourse"),
-
+    path('Dashboard/editcourse/<int:pk>',views.editcourse,name="editcourse"),
+    path('delete/<int:pk>',views.deletecourse,name='deletecourse')
 
 ]

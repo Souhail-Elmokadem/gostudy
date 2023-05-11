@@ -4,6 +4,14 @@
   <head>
     {% include 'base/header.html' %}
     <title>Login #2</title>
+    <style>
+      .half, .half .container > .row {
+        height: 100vh;
+        min-height: 960px; }
+        .half .bg {
+          background-size: cover;
+          background-position: bottom;
+    </style>
   </head>
   <body>
   
@@ -26,6 +34,21 @@
               <div class="form-group first">
                 <label for="username">Email</label>
                 <input type="Email" class="form-control" placeholder="your-email@gmail.com" id="username" name="email">
+              </div>
+              <div class="form-group first">
+                <label for="datenaissence">Date Naissence</label>
+                <input type="date" class="form-control" placeholder="dd/mm/yyyy" id="datenaissence" name="datenaissence">
+              </div>
+              <div class="form-group first">
+                <label for="levels" >levels</label>
+                  <select name="NiveauEtudiant" id="" class="form-control">
+                      <option value="1er annee">1er annee</option>
+                      <option value="2eme annee">2eme annee</option>
+                      <option value="3eme annee">3eme annee</option>
+                      <option value="4eme annee">4eme annee</option>
+                      <option value="5eme annee">5eme annee</option>
+                      <option value="6eme annee">6eme annee</option>
+                  </select>              
               </div>
               <div class="form-group last mb-3">
                 <label for="password">Password</label>

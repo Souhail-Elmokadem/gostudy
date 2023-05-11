@@ -24,6 +24,7 @@
                             <th>duration</th>
                             <th>Start date</th>
                             <th>Prix</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -34,6 +35,7 @@
                             <th>duration</th>
                             <th>Start date</th>
                             <th>Prix</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -42,9 +44,14 @@
                             <td><img src="{{cr.cover.url}}" width=140 alt="" srcset=""></td>
                             <td>{{cr.titre}}</td>
                             <td>{{cr.categorie}}</td>
-                            <td>{{cr.duration}}</td>
+                            <td>{{cr.duration}}hrs</td>
                             <td>{{cr.datecreation}}</td>
-                            <td>{{cr.prix}}</td>
+                            {% if cr.prix %}
+                            <td><script>document.write(parseFloat({{cr.prix}}*10))</script> DH</td>
+                            {% else %}
+                            <td>FREE</td>
+                            {% endif %}
+                            <td><center><a href="{% url 'editcourse' cr.id %}"><i class="fa-regular fa-pen-to-square"></i></a> - <a href="{% url 'deletecourse' cr.id %}"><i class="fa-solid fa-trash"></i></a></center></td>
                         </tr>
                         {% endfor %}
                     </tbody>

@@ -37,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboardprof' %}">
                     <img src="{% static 'prof/img/logo.png' %}" width="160" alt="">                
                 </a>
             </a>
@@ -196,7 +196,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            {% if request.resolver_match.url_name != 'createcourse' %}
+            {% if request.resolver_match.url_name != 'createcourse' and request.resolver_match.url_name != 'deletecourse' %}
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">

@@ -4,6 +4,7 @@ from etudiant.models import Enrollement,etudiant
 from django.db.models import Count
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def CoursesList(request):
@@ -18,7 +19,7 @@ def CoursesListS(request,pk):
         }
     return render(request,'courses/courseslist.html',Coursecategories)
 
-
+@login_required(login_url='etudiant_login')
 def coursedetails(request,pk):
     crs = course.objects.all().get(id=pk)
     try:
@@ -35,6 +36,7 @@ def coursedetails(request,pk):
         }
     return render(request,'courses/coursedetails.html',m)
 
+@login_required(login_url='etudiant_login')
 def EnrollCourse(request,pk):
     crs = course.objects.all().get(id=pk)
     form = Enrollement(cours=crs,etudiant=request.user.etudiant)
@@ -48,6 +50,7 @@ def EnrollCourse(request,pk):
             return redirect('home')
     return render(request,'courses/Enroll.html')
 
+@login_required(login_url='etudiant_login')
 def viewCourse(request,pk):
     crs = course.objects.all().get(id=pk)
     return render(request,'courses/courseview.html',{'cours':crs})
