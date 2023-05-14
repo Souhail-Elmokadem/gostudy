@@ -20,3 +20,18 @@ def allowedusers(allowedGroups=[]):
                 return redirect("home")
         return wrapper_func
     return decorators
+
+def Notallowedusers(NotallowedGroups=[]):
+    def decorators(view_func):
+        def wrapper_func(request, *args, **kwargs):
+            try:
+                if request.user.groups.exists():
+                    group = request.user.groups.all()[0].name
+                if group in NotallowedGroups:
+                    return redirect("home")
+                else:
+                    return view_func(request, *args, **kwargs)
+            except:
+                return view_func(request, *args, **kwargs)
+        return wrapper_func
+    return decorators

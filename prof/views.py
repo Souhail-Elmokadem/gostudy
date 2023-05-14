@@ -7,14 +7,25 @@ from django.contrib import messages
 from django.db.models import Sum
 from .forms import courseForm
 from django.contrib.auth.decorators import login_required
-from etudiant.decorators import allowedusers,notLoginUsers
+from etudiant.decorators import allowedusers,notLoginUsers,Notallowedusers
+from etudiant.models import etudiant
 from django.contrib.auth.models import Group
 # Create your views here.
 
-@notLoginUsers
-@allowedusers(allowedGroups=['etudiant','admin'])
+@Notallowedusers(NotallowedGroups=['prof'])
 def getstarted(request):
     return render(request,'prof/getstarted.html')
+
+def addroleprof(request,pk):
+    user = request.user
+    etudiantuser = etudiant.objects.all().get(id=pk)
+    if user is not None:
+        group = Group.objects.get(name="prof")
+        user.groups.add(group)
+        Enseignant(id=user.id,user=request.user,nom=user.username,datenaissence=etudiantuser.datenaissence).save()
+        return redirect('dashboardprof')
+    return render(request,'prof/addroleprof.html')
+
 
 
 @notLoginUsers
@@ -32,7 +43,6 @@ def registerprof(request):
     return render(request,'prof/registerprof.html',{'u':form})
 
 @login_required(login_url='etudiant_login')
-@allowedusers(allowedGroups=['prof','admin'])
 def dashboardprof(request):
     m = {
         'countcours':course.objects.all().filter(Enseignant=request.user.id).count(),
@@ -44,7 +54,6 @@ def dashboardprof(request):
     return render(request,'prof/dashboard.html',m)
 
 @login_required(login_url='etudiant_login')
-@allowedusers(allowedGroups=['prof','admin'])
 def dashboardcourses(request):
     m = {
     'pdp':Enseignant.objects.all().get(user=request.user),
@@ -53,7 +62,6 @@ def dashboardcourses(request):
     return render(request,'prof/courses.html',m)
 
 @login_required(login_url='etudiant_login')
-@allowedusers(allowedGroups=['prof','admin'])
 def createcourse(request):
     form = courseForm()
     ens = Enseignant.objects.all().get(user=request.user)
@@ -73,7 +81,6 @@ def createcourse(request):
     return render(request,'prof/createcourse.html',m)
 
 @login_required(login_url='etudiant_login')
-@allowedusers(allowedGroups=['prof','admin'])
 def editcourse(request,pk):
     crs = course.objects.all().filter(Enseignant=request.user.id).get(id=pk)
     if request.method == "POST":
@@ -91,7 +98,6 @@ def editcourse(request,pk):
     return render(request,'prof/editcourse.html',m)
 
 @login_required(login_url='etudiant_login')
-@allowedusers(allowedGroups=['prof','admin'])
 def deletecourse(request,pk):
     crs = course.objects.all().filter(Enseignant=request.user.id).get(id=pk)
     if request.method == "POST":

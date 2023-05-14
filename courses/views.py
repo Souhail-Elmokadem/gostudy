@@ -52,5 +52,13 @@ def EnrollCourse(request,pk):
 
 @login_required(login_url='etudiant_login')
 def viewCourse(request,pk):
+    et = etudiant.objects.all().get(id=request.user.id)
     crs = course.objects.all().get(id=pk)
-    return render(request,'courses/courseview.html',{'cours':crs})
+    enr = Enrollement.objects.all().filter(etudiant=et)
+    
+        
+    m={
+        'enr':enr,
+        'cours':crs,
+    }
+    return render(request,'courses/courseview.html',m)
