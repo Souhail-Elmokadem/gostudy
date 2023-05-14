@@ -8,5 +8,6 @@ urlpatterns = [
     path('Dashboard/createcourse',views.createcourse,name="createcourse"),
     path('Dashboard/editcourse/<int:pk>',views.editcourse,name="editcourse"),
     path('delete/<int:pk>',views.deletecourse,name='deletecourse'),
-    path('addroleprof/<int:pk>',views.addroleprof,name='addroleprof')
+    path('addroleprof/<int:pk>',views.addroleprof,name='addroleprof'),
+    path('logout',views.userlogout,name='logoutprof')
 ]

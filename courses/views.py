@@ -5,6 +5,7 @@ from django.db.models import Count
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from etudiant.models import etudiant
 # Create your views here.
 
 def CoursesList(request):
@@ -60,5 +61,6 @@ def viewCourse(request,pk):
     m={
         'enr':enr,
         'cours':crs,
+        'ett':et,
     }
     return render(request,'courses/courseview.html',m)

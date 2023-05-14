@@ -6,13 +6,22 @@
     {% include 'base/coursesHeader.html' %}
     <title>Watch - {{cours.titre}}</title></head>
 <body>
+    {% if ett %}
     
-   
+    {% endif %}
     {% for msg in messages %}
     <h1>{{msg}}</h1>
     {% endfor %}
-    <div class="d-flex justify-content-cente p-5">
-        <div class="card w-75">
+    
+    <div class="col-lg-4 col-md-6 wow fadeInUp " data-wow-delay="0.1s">
+        <div class="course-item bg-light">
+            <video width="1225"  controls>
+                <source src="{{cours.video.url}}" type="video/mp4">
+              </video>
+        </div>
+        </div>
+        <div class="d-flex justify-content-cente">
+        <div class="card" style="width:1225px;">
             <div class="card-body">
                 <h5 class="card-title">{{cours.titre}}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Create on <span class="text-secondary">{{cours.datecreation.date}}</span></h6>
@@ -27,13 +36,6 @@
 
     </div>
     </div>
-    <div class="col-lg-4 col-md-6 wow fadeInUp p-5" data-wow-delay="0.1s">
-        <div class="course-item bg-light">
-            <video width="1280" height="720" controls>
-                <source src="{{cours.video.url}}" type="video/mp4">
-              </video>
-        </div>
-        </div>
 </body>
 </html>
 {% endblock nav %}

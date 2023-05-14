@@ -1,7 +1,19 @@
+{% if request.resolver_match.url_name == 'ViewCourse' %}
 
+<nav class="navbar navbar-expand-lg bg-dark navbar-light  sticky-top p-0 w-100%">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary fs-2"><i class="fa fa-book me-3"></i>GoStudy <span class="fs-5">Watch</span> <span style="font-weight: 100;"> |</span> <span class="fs-4" >{{cours.titre}}</span> </h2>
+    </a>
+    
+    <div style="width: 100%;padding-right: 20px;">
+                                <img class="img-profile rounded-circle float-end" width="40"
+                                    src="{{ett.photo.url}}">
+    <a href="{{request.META.HTTP_REFERER}}" class="nav-item nav-link float-end" >Retour</a>
+</div>
+   {% else %}
 <nav class="navbar navbar-expand-lg bg-white navbar-light  sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>GoStudy</h2>
+        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>GoStudy </h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -35,9 +47,15 @@
 
     {% endif %}
     </div>
+{% endif %}
+   
+    
 </nav>
 {% block nav %}
 
 
 {% endblock nav %}
 {% include 'base/footer.html' %}
+
+
+

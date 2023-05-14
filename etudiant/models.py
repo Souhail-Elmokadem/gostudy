@@ -7,7 +7,7 @@ class etudiant(models.Model):
     user = models.OneToOneField(User, null=True,on_delete=models.CASCADE)
     nom = models.CharField(max_length=30)
     datenaissence = models.DateField()
-    photo = models.ImageField(upload_to='etudiant/img/pdp/%y',blank=True)
+    photo = models.ImageField(upload_to='etudiant/img/pdp/%y',default='etudiant/img/pdp/23/def.png')
     levels = (
         ('1er annee','1er annee'),('2eme annee','2eme annee'),
         ('3eme annee','3eme annee'),('4eme annee','4eme annee'),
