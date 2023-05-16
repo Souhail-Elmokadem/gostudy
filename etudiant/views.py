@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import login,authenticate
 from etudiant.decorators import notLoginUsers
 from django.contrib.auth.models import User,Group
-from etudiant.models import etudiant
+from etudiant.models import etudiant,Enrollement
+
 # Create your views here.
 @notLoginUsers
 def etudiant_login(request):
@@ -33,4 +34,12 @@ def etudiant_register(request):
               form = etudLoginForm()
         return render(request,'auth/etudiant/register.html',{'f':form})
 
+def profile(request):
+     et = etudiant.objects.all().get(user=request.user)
+     enr = Enrollement.objects.all().filter(etudiant=et).count()
+     l = {
+          'etd':et,
+          'nbE':enr
+     }
+     return render(request,'etudiant/index.html',l)
 
