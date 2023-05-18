@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
-from .forms import etudLoginForm
+from .forms import etudLoginForm,etudForm
 from django.contrib import messages
 from django.contrib.auth import login,authenticate
 from etudiant.decorators import notLoginUsers
 from django.contrib.auth.models import User,Group
 from etudiant.models import etudiant,Enrollement
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 @notLoginUsers
 def etudiant_login(request):
@@ -34,12 +34,26 @@ def etudiant_register(request):
               form = etudLoginForm()
         return render(request,'auth/etudiant/register.html',{'f':form})
 
+@login_required(login_url='etudiant_login')
 def profile(request):
      et = etudiant.objects.all().get(user=request.user)
      enr = Enrollement.objects.all().filter(etudiant=et).count()
+     crs = Enrollement.objects.all().filter(etudiant=et)
      l = {
           'etd':et,
-          'nbE':enr
+          'nbE':enr,
+          'crs':crs
      }
      return render(request,'etudiant/index.html',l)
 
+def updateProfile(request):
+    et = etudiant.objects.all().get(user=request.user)
+    if request.method == "POST":
+       form =  etudForm(request.POST,request.FILES,instance=et)
+       if form.is_valid():
+            form.save()
+    l = {
+          'etd':et,
+          
+     }
+    return render(request,'etudiant/update.html',l)

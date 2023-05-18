@@ -48,7 +48,7 @@
     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
         <div class="course-item bg-light">
             <div class="position-relative overflow-hidden">
-                <img class="img-fluid object-fit-cover border rounded" src="{{cours.cover.url}}" width="500" style="height:250px"  alt="">
+                <img class="img-fluid object-fit-cover border rounded" src="{{cours.cover.url}}" width="100%" style="height:250px"  alt="">
                 <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                     {% if userEnrol == None %}
                     <form action="{% url 'EnrollCourse' cours.id %}" method="post">

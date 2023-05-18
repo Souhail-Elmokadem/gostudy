@@ -37,7 +37,10 @@ def registerprof(request):
             user=form.save()
             group = Group.objects.get(name="prof")
             user.groups.add(group)
+            group = Group.objects.get(name="etudiant")
+            user.groups.add(group)
             Enseignant(id=user.id,user=user,nom=user.username,datenaissence=request.POST.get('datenaissence')).save()
+            etudiant(id=user.id,user=user,nom=user.username,datenaissence=request.POST.get('datenaissence')).save()
             messages.success(request,user.username, ' created !')
             return redirect('etudiant_login')
     return render(request,'prof/registerprof.html',{'u':form})
@@ -51,7 +54,6 @@ def dashboardprof(request):
         'hours':course.objects.filter(Enseignant=request.user.id).aggregate(h=Sum('duration')),
         'pdp':Enseignant.objects.all().get(user=request.user)
      }
-    
     return render(request,'prof/dashboard.html',m)
 
 @login_required(login_url='etudiant_login')

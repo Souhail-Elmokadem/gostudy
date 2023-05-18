@@ -1,7 +1,7 @@
 {% if request.resolver_match.url_name == 'ViewCourse' %}
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-light  sticky-top p-0 w-100%">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <h2 class="m-0 text-primary fs-2"><i class="fa fa-book me-3"></i>GoStudy <span class="fs-5">Watch</span> <span style="font-weight: 100;"> |</span> <span class="fs-4" >{{cours.titre}}</span> </h2>
     </a>
     
@@ -11,8 +11,11 @@
     <a href="{{request.META.HTTP_REFERER}}" class="nav-item nav-link float-end" >Retour</a>
 </div>
    {% else %}
+   <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
 <nav class="navbar navbar-expand-lg bg-white navbar-light  sticky-top p-0">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>GoStudy </h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -21,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
+            <a href="{% url 'ai' %}" class="nav-item nav-link">GoStudy ai <span class="badge rounded-pill text-bg-primary" style="font-size:0.7em;position: relative;top:-2px;left:2px">New</span></a>
             <a href="{% url 'CoursesList' %}" class="nav-item nav-link">Courses</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -40,7 +43,7 @@
            
         </div>
         {% if user.is_authenticated %}
-        <a href="{% url 'etudiant_register' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Hi {{user}} !<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="{% url 'profile' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Hi {{user}} !<i class="fa fa-arrow-right ms-3"></i></a>
         
     {% else %}
         <a href="{% url 'etudiant_register' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i><br></a>
@@ -55,6 +58,7 @@
 
 
 {% endblock nav %}
+
 {% include 'base/footer.html' %}
 
 

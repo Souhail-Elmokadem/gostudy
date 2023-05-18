@@ -16,4 +16,5 @@ def index(request):
     }
     return render(request,"home/index.html",m)
 
-
+def ai(request):
+    return render(request,'home/ai.html')
