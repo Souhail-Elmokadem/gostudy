@@ -1,0 +1,224 @@
+{% extends 'base/prof/header.html' %}
+{% block content %}
+{% load static %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Courses (Total)</div>
+                                {% comment %} {% if countcours %} {% endcomment %}
+                            {% comment %} <div class="h5 mb-0 font-weight-bold text-gray-800">{{countcours}} Courses</div> {% endcomment %}
+                            {% comment %} {% else %} {% endcomment %}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{countcours}} Courses</div>
+                            {% comment %} {% endif %} {% endcomment %}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Students (Total)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{courstudents}} Students</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Heurs (Total)
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    {% if hours.h %}
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{hours.h}} Hours</div>
+                                    {% else %}
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0 Hours</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Enrollements</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{courstudents}} Enrolls</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-shopping-cart	 fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-area container">
+                        <div class="row">
+                        <div class="p-5 col-8">
+                        <h1 class="display-3 text-dark animated slideInDown fs-4">Create an Engaging Course</h1>
+                        <h3  class="display-3 text-dark animated slideInUp fs-6" >Whether you've been teaching for years or are teaching for the first time, you can make an engaging course.<br>We've compiled resources and best practices to help you get to the next level, no matter where you're starting.</h3>
+                        <br>
+                        <a href="{% url 'createcourse' %}" ><button id="btn" class="animated slideInUp mt-5 text-white" type="submit" style="width:200px;height:40px;background-color:#fb771a;border:none;font-weight:bold;">Create Your Course</button></a>                
+                    </div>
+                        <div class="col">
+                           <img src="{% static 'prof/img/engaging-course.jpg' %}" width=200 alt="" srcset="">
+                        </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-5">
+           
+            
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Content Column -->
+        <div class="col-lg-6 mb-4">
+
+            <!-- Project Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 22rem;"
+                            src="{% static 'prof/img/video-creation.jpg' %}" width=100 alt="...">
+                    </div>
+                    <p class="display-3 text-dark animated slideInUp fs-6">Quality video lectures can set your course apart. Use our resources to learn the basics.</p>
+                    <a target="_blank" rel="nofollow" href="https://community.udemy.com/t5/Instructor-Community/ct-p/Community">Get Started &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Color System -->
+            
+
+        </div>
+
+        <div class="col-lg-6 mb-4">
+
+            <!-- Illustrations -->
+            <div class="card shadow mb-4">
+    
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 22rem;"
+                            src="{% static 'prof/img/build-audience.jpg' %}" width=100 alt="...">
+                    </div>
+                    <p class="display-3 text-dark animated slideInUp fs-6">Instructor Community
+                        Connect with experienced instructors. Ask questions, browse discussions, and more.</p>
+                    <a target="_blank" rel="nofollow" href="https://community.udemy.com/t5/Instructor-Community/ct-p/Community">Browse Instructor Community on
+                        Udemy &rarr;</a>
+                </div>
+            </div>
+</div>
+            <!-- Approach -->
+            
+            <div class="row">
+
+                <!-- Area Chart -->
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area container">
+                                <div class="row">
+                                <div class="p-5 col-8">
+                                <h1 class="display-3 text-dark animated slideInDown fs-4">Join the New Instructor Challenge!</h1>
+                                <h3  class="display-3 text-dark animated slideInUp fs-6" >Get exclusive tips and resources designed to help you launch your first course faster! Eligible instructors who publish their first course on time will receive a special bonus to celebrate. </h3>
+                                <br>
+                                <span style="position: relative;top:80px">
+                                <a target="_blank"  rel="nofollow" href="https://community.udemy.com/t5/Instructor-Community/ct-p/Community">Start today ! &rarr;</a></span></div>
+                                <div class="col">
+                                   <img src="{% static 'prof/img/challenge.jpg' %}" width=200 alt="" srcset="">
+                                </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pie Chart -->
+                <div class="col-xl-4 col-lg-5">
+                   
+                    
+                </div>
+            </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+
+
+{% endblock content %}

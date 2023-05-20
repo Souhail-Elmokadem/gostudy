@@ -1,0 +1,84 @@
+{% include 'base/coursesHeader.html' %}
+<head>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/cb9e723089.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/costum/style.css' %}">
+</head>
+<nav class="navbar navbar-expand-lg bg-white navbar-light  sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><i class="fa-solid fa-chalkboard-user fa-lg mr-2"></i> GoStudy <span class="fw-lighter">Teach</span></h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+             <a href="{% url 'home' %}" class="nav-item nav-link"> Retour</a>
+          </div>
+        </div>
+
+
+
+    {% include 'base/header.html' %}
+    </nav>
+    <body>
+        
+    
+        <div class="container-fluid bg-primary py-5 mb-5 page-header" style="width: 100%;height:auto;background-color:blue;">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="mt-1">
+                            <h1 class="display-3 text-white animated slideInDown">Teach with us - GoStudy </h1>
+                        </div>
+                    <div class="mt-5 w-50 text-white">
+                        
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                          <div class="form-group first">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" placeholder="@user-name" id="username" name="username">
+                          </div>
+                          <div class="form-group first">
+                            <label for="username">Email</label>
+                            <input type="Email" class="form-control" placeholder="your-email@gmail.com" id="username" name="email">
+                          </div>
+                          <div class="form-group first">
+                            <label for="datenaissence">Date Naissance</label>
+                            <input type="date" class="form-control" placeholder="dd/mm/yyyy" id="username" name="datenaissence">
+                          </div>
+                          <div class="form-group last mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" placeholder="Your Password" id="password" name="password1">
+                          </div>
+                          <div class="form-group last mb-3">
+                            <label for="password">Confirmer Password</label>
+                            <input type="password" class="form-control" placeholder="Your Password" id="password" name="password2">
+                          </div>
+                          <div class="d-flex mb-5 align-items-center">
+                            <label class="control control--checkbox mb-0"><span class="caption" style="color:#F6EBE3;">Remember me</span>
+                              <input type="checkbox" checked="checked"/>
+                              <div class="control__indicator"></div>                
+                              
+                            </label>
+                            <span class="ml-auto"><a href="#" class="forgot-pass" style="color:#F6EBE3;">Forgot Password</a></span>
+                            
+                          </div>
+                        
+                          <input type="submit" value="Register" class="btn btn-block btn-primary">
+                          <span class="ml-auto"><a href="{% url 'etudiant_login' %}" class="forgot-pass" style="color:#F6EBE3;">Vous êtes déjà inscrit ? Login</a></span>
+                          
+                         <p>
+                            {% if u.errors  %}{{u.errors}}{% endif %}
+                          </p>
+                        
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+
+    

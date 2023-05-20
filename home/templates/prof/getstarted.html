@@ -1,0 +1,43 @@
+{% include 'base/coursesHeader.html' %}
+<head>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/cb9e723089.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/costum/style.css' %}">
+</head>
+<nav class="navbar navbar-expand-lg bg-white navbar-light  sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><i class="fa-solid fa-chalkboard-user fa-lg mr-2"></i> GoStudy <span class="fw-lighter">Teach</span></h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+             <a href="{% url 'home' %}" class="nav-item nav-link"> Retour</a>
+          </div>
+        </div>
+
+
+
+    {% include 'base/header.html' %}
+    </nav>
+    <body>
+        
+    
+        <div class="container-fluid bg-primary py-5 mb-5 page-header" style="width: 100%;height:80vh;background-color:blue;">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="mt-5">
+                        <h1 class="display-3 text-white animated slideInDown">Come teach with us</h1>
+                        <h3  class="display-3 text-white animated slideInUp fs-3" >Become an instructor and change <br> lives — including your own</h3>
+                        <br>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'addroleprof' user.id %}" ><button id="btn" class="animated slideInUp mt-5 text-white" type="submit" style="width:200px;height:40px;background-color:#fb771a;border:none;font-weight:bold;">Get Started</button></a>
+                        {% else %}
+                        <a href="{% url 'registerprof' %}" ><button id="btn" class="animated slideInUp mt-5 text-white" type="submit" style="width:200px;height:40px;background-color:#fb771a;border:none;font-weight:bold;">Get Started</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>

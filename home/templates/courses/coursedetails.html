@@ -1,0 +1,100 @@
+{% extends 'base/navbar.html' %}
+{% block nav %}
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    {% include 'base/coursesHeader.html' %}
+    <title>{{cours.titre}}</title></head>
+<body>
+    
+    
+    
+    <!--Header Bar-->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">{{cours.titre}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page"><a class="text-white" href="{% url 'CoursesList' %}">Course</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">{{cours.categorie}}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<div class="d-flex justify-content-cente p-5">
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">{{cours.titre}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Create on <span class="text-secondary">{{cours.datecreation.date}}</span></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">This Course created By <span class="text-secondary">{{cours.Enseignant}}</span></h6>
+            <p class="card-text">{{cours.description}}</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+            <p class="text-body-secondary" style="color:#7CB4B8;">Tags :{% for tag in cours.tag.all %} {{tag}}, {% endfor %}</p> 
+          </div>
+       
+    </div>
+    <!-- End Header Bar-->
+    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="course-item bg-light">
+            <div class="position-relative overflow-hidden">
+                <img class="img-fluid object-fit-cover border rounded" src="{{cours.cover.url}}" width="100%" style="height:250px"  alt="">
+                <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                    {% if userEnrol == None %}
+                    <form action="{% url 'EnrollCourse' cours.id %}" method="post">
+                        {% csrf_token %}
+                    <a href="" class="flex-shrink-0 btn btn-sm btn-danger px-5" style="border-radius: 30 30px 30px 30;"><button type="submit" style="background-color:transparent;border:none;color:white;">Enroll Now</button> </a>
+                </form>
+                {% else %}
+                <a href="{% url 'ViewCourse' cours.id %}" class="flex-shrink-0 btn btn-sm btn-danger px-5" style="border-radius: 30 30px 30px 30;"><button type="submit" style="background-color:transparent;border:none;color:white;">View Course</button> </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="text-center p-4 pb-0">
+                {% if cours.prix == 0 %}
+                <h3 class="mb-0 badge bg-secondary text-wrap mb-2" style="font-size:1.5em;">Free</h3>
+                {% else %}
+                <h3 class="mb-0"><script>document.write(parseFloat({{cours.prix}}*10))</script> DH</h3>
+                {% endif %}
+                <div class="mb-3">
+                    
+                    <small class="fa fa-star text-primary"></small>
+                    <small class="fa fa-star text-primary"></small>
+                    <small class="fa fa-star text-primary"></small>
+                    <small class="fa fa-star text-primary"></small>
+                    <small class="fa fa-star text-primary"></small>
+                 
+                    <small>({{cours.avis}})</small>
+                    
+                </div>
+                <h5 class="mb-4">{{cours.titre}}</h5>
+            </div>
+            <div class="d-flex border-top">
+                <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{cours.Enseignant}}</small>
+                <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{cours.duration}} Hrs</small>
+                 
+                <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>
+                    {% if enrs.Tet == None %}0{% else %}{{enrs.Tet}}{% endif %}
+                     etudiants</small>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    </div>
+
+</body>
+</html>
+
+{% endblock nav %}

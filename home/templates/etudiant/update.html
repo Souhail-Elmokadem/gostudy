@@ -1,0 +1,95 @@
+{% extends 'base/etudiant/navProfile.html' %}
+{% block content %}
+
+<div class="col-lg-10 m-3">
+    <div class="card">
+        <div class="card-header bg-transparent">
+            <h6 class="text-uppercase text-muted ls-1 mb-1">information personal</h6>
+            <h5 class="h3 mb-0">Update</h5>
+        </div>
+        <div class="card-body">
+           <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="content w-75">
+                <div class="mb-3">
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" id="" class="form-control" value="{{etd.nom}}">
+                </div>
+                <div class="mb-3">
+                    
+            <label for="datenaissence">Date Naissence : </label>
+            <input type="date" name="datenaissence" id="" class="form-control" value="{{etd.datenaissence|date:'Y-m-d'}}">
+                </div>
+                <div class="mb-3">
+             <label for="Niveau">Niveau : </label>
+            <select name="NiveauEtudiant" id="Niveau" class="form-control">
+                {% if etd.NiveauEtudiant == '1er annee' %}
+                            <option value="1er annee" selected>1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee">4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% elif etd.NiveauEtudiant == '2eme annee' %}
+                            <option value="1er annee" >1er annee</option>
+                            <option value="2eme annee" selected>2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee">4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% elif etd.NiveauEtudiant == '3eme annee' %}
+                            <option value="1er annee" >1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee" selected>3eme annee</option>
+                            <option value="4eme annee" >4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% elif etd.NiveauEtudiant == '4eme annee' %}
+                            <option value="1er annee">1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee" selected>4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% elif etd.NiveauEtudiant == '5eme annee' %}
+                            <option value="1er annee" >1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee" >4eme annee</option>
+                            <option value="5eme annee" selected>5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% elif etd.NiveauEtudiant == '6eme annee' %}
+                            <option value="1er annee">1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee">4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee" selected>6eme annee</option>
+                            {% else %}
+                            <option value="1er annee" disable selected>select Niveau</option>
+                            <option value="1er annee" >1er annee</option>
+                            <option value="2eme annee">2eme annee</option>
+                            <option value="3eme annee">3eme annee</option>
+                            <option value="4eme annee" >4eme annee</option>
+                            <option value="5eme annee">5eme annee</option>
+                            <option value="6eme annee">6eme annee</option>
+                            {% endif %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="bio">bio : </label>
+            <textarea name="bio" id="" cols="30" rows="10" class="form-control">{{etd.bio}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="photo">photo : </label>
+            <input type="file" name="photo" id="" class="form-control mb-3">
+            {{etd.photo}}
+        </div>
+            <button type="submit" class="btn btn-info w-25" >Save</button>
+            </div>
+           </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
