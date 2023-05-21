@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect
-from .forms import etudLoginForm,etudForm
+from django.urls import reverse_lazy
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth import login,authenticate
 from etudiant.decorators import notLoginUsers
 from django.contrib.auth.models import User,Group
 from etudiant.models import etudiant,Enrollement
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
 # Create your views here.
 @notLoginUsers
 def etudiant_login(request):
@@ -46,6 +48,8 @@ def profile(request):
      }
      return render(request,'etudiant/index.html',l)
 
+
+@login_required(login_url='etudiant_login')
 def updateProfile(request):
     et = etudiant.objects.all().get(user=request.user)
     if request.method == "POST":
@@ -57,3 +61,9 @@ def updateProfile(request):
           
      }
     return render(request,'etudiant/update.html',l)
+
+class PasswordChangeView(PasswordChangeView):
+     form_class = MyChangeFormPassword
+     success_url = reverse_lazy("profile")
+     
+

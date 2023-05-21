@@ -36,7 +36,7 @@
             </div>
           
            {% if "prof" in user.groups.all.0.name and user.is_authenticated %}
-           <a href="{% url 'dashboardprof' %}" class="nav-item nav-link">Dashboard</a>
+           <a href="{% url 'dashboardprof' %}" class="nav-item nav-link">Enseignant Dashboard</a>
            {% else %}
            <a href="{% url 'getstarted' %}" class="nav-item nav-link">Teach on Gostady</a>
            {% endif %}

@@ -1,7 +1,31 @@
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+    <script src="https://kit.fontawesome.com/cb9e723089.js" crossorigin="anonymous"></script>
+    <style>
+        .loading:after {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+            -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+            animation: ellipsis steps(4, end) 900ms infinite;
+            content: "\2026";
+            /* ascii code for the ellipsis character */
+            width: 0px;
+          }
+          
+          @keyframes ellipsis {
+            to {
+              width: 40px;
+            }
+          }
+          
+          @-webkit-keyframes ellipsis {
+            to {
+              width: 40px;
+            }
+          }
+    </style>
 </head>
 <nav class="navbar navbar-expand-lg bg-white navbar-light  sticky-top p-0">
     <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
@@ -17,7 +41,7 @@
           
             </div>
           
-          
+            
            
         </div>
        
@@ -25,9 +49,20 @@
     
 </nav>
 
-<p class="text-muted text-center fs-1">coming soon !</p>
-
+<p class="text-muted text-center fs-5">coming soon !</p>
+<div class="justify-content-center w-50" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)"><div><h4>{{e}}</h4> </div>
+{% load static %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="mt-5">
+        {% if e %} {% else %}
+        <h3 class="text-center mb-5 loading fs-1 text-secondary"></h3>
+        {% endif %}
+                <input type="text" class="form-control mb-3" name="user_input" id="">
+                <button type="submit" class="btn btn-secondary w-100"><img src="{% static 'img/ai.png' %}" alt="" width=50 style="transform: rotate(-30deg);"></button>
+            </div>
+            </form>
    
+</div>
 
-    
 

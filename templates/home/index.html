@@ -31,6 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>#btn:hover{background-color:#06bbcc;color:white}</style>
 </head>
 
 <body>
@@ -51,58 +52,33 @@
 
     <!-- Carousel Start -->
     
-    <!-- Carousel End -->
-<div style="background-image: url('{% static 'img/cat-1.png' %}');
-                background-color: #cccccc;
-                height: 700px;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: relative;
-                z-index: -1;
-                ">
 
-   <!-- About Start -->
-    <div class="container-xxl py-5" style="z-index: 99;">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" alt="" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to eLEARNING</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-                </div>
+    <div class=" w-100 bg-white" style="height:70vh;background-image:url('{% static 'img/carousel-1.png' %}');background-size:cover; background-position: center; 
+    background-repeat: no-repeat;">
+            <div class="container p-5">
+                <div class="mt-5 w-75">
+                <h1 class="fs-5 mb-3" style="color:#08b2c3;">BEST ONLINE COURSES</h1>
+                <h1 class="mb-4 text-white" style="font-size:4em;">Your Gateway to Online Education</h1>
+               
+                <footer class="text-white fs-6 mb-5">Our eLearning platform provides a comprehensive and user-friendly online learning experience. It offers a wide range of courses and educational materials that can be accessed anytime, anywhere.</footer>
+            </blockquote>
+            {% if user.is_authenticated %}
+       <a href="{% url 'profile' %}">
+        <button type="submit" style="width: 200px;height:50px;border:none;transition-duration:0.4s;" id='btn'>Join Now</button>
+    </a>
+    {% else %}
+    <a href="{% url 'etudiant_register' %}">
+        <button type="submit" style="width: 200px;height:50px;border:none;transition-duration:0.4s;" id='btn'>Join Now</button>
+    </a>
+    {% endif %}
             </div>
-        </div>
-    </div></div>
-    <!-- About End -->
+            </div>
+
 </div>
+
+    <!-- Carousel End -->
+
+ 
 
 
     <!-- Service Start -->
@@ -114,7 +90,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
                             <h5 class="mb-3">Skilled Instructors</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>designed to provide employees with the targeted training they need to gain the knowledge and abilities necessary </p>
                         </div>
                     </div>
                 </div>
@@ -123,7 +99,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5 class="mb-3">Online Classes</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>An online class is a course conducted over the Internet. They are generally conducted through a learning management system</p>
                         </div>
                     </div>
                 </div>
@@ -132,7 +108,8 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
                             <h5 class="mb-3">Home Projects</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>What are project ideas?
+                                Project Ideas are where you begin documenting proposals for future research grant applications.</p>
                         </div>
                     </div>
                 </div>
@@ -141,7 +118,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
                             <h5 class="mb-3">Book Library</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Choose among free epub and Kindle eBooks, download them or read them online. You will find the world's great literature here.</p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +128,114 @@
     <!-- Service End -->
 
 
- 
+
+       <!-- Courses Start -->
+   <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% for c in cours %}
+           
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid object-fit-cover border rounded" src="{{c.cover.url}}" width="420" style="height:230px"   alt="">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                            {% comment %} {% if request.user == %}{% endif %} {% endcomment %}
+                            <a href="{% url 'coursedetails' c.id %}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        {% if c.prix == 0 %}
+                        <h3 class="mb-0 badge bg-secondary text-wrap mb-2" style="font-size:1.5em;">Free</h3>
+                        {% else %}
+                        <h3 class="mb-0"><script>document.write(parseFloat({{c.prix}}*10))</script> DH</h3>
+                        {% endif %}
+                        <div class="mb-3">
+                            
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                         
+                            <small>({{c.avis}})</small>
+                            
+                        </div>
+                        <h5 class="mb-4">{{c.titre}}</h5>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{c.Enseignant}}</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{c.duration}} Hrs</small>
+                         
+                        <small class="flex-fill text-center py-2"><i class="fas fa-tags" style="color: #09bccd;position: relative;bottom:-1px;"></i><span class="m-1"></span>{{c.categorie}} </small>
+                        
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+
+
+
+
+
+   <!-- About Start -->
+   <div class="container-xxl py-5" style="z-index: 99;">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">GoStudy</h6>
+                <h1 class="mb-4">Welcome to eLEARNING</h1>
+                <p class="mb-4">GoStudy is an innovative e-learning platform that offers a comprehensive range of courses and educational resources.  </p>
+                <p class="mb-4">It provides a user-friendly interface that allows students to access high-quality educational content anytime, anywhere. GoStudy offers a diverse selection of courses covering various subjects, including academics, professional development, and personal growth.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Dashboard Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Management Courses</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Professional platform</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- About End -->
+
+
+
+
+
+
+
+
 
 
 
@@ -192,15 +276,14 @@
 
 
 
-    <!-- Courses Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 class="mb-5">Popular Courses</h1>
+                <h1 class="mb-5">Lastest Courses</h1>
             </div>
             <div class="row g-4 justify-content-center">
-                {% for c in cours %}
+                {% for c in coursR %}
                
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="course-item bg-light">
@@ -245,7 +328,8 @@
             </div>
         </div>
     </div>
-    <!-- Courses End -->
+
+ 
 
 
 
@@ -255,48 +339,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <!-- Testimonial End -->
         
 

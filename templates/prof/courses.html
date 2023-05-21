@@ -39,6 +39,7 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        {% if not cours %} <tr> <td colspan='7' class="text-center">No Courses data</td></tr> {% else %}
                         {% for cr in cours %}
                         <tr>
                             <td><img src="{{cr.cover.url}}" width=140 alt="" srcset=""></td>
@@ -54,6 +55,7 @@
                             <td><center><a href="{% url 'editcourse' cr.id %}"><i class="fa-regular fa-pen-to-square"></i></a> - <a href="{% url 'deletecourse' cr.id %}"><i class="fa-solid fa-trash"></i></a></center></td>
                         </tr>
                         {% endfor %}
+                        {% endif %}
                     </tbody>
                 </table>
             </div>

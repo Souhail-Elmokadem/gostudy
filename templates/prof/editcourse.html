@@ -19,7 +19,7 @@
             <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-body d-flex justify-content-center">
-               <div class=" col-6 position-relative mt-3">
+               <div class="col-6 position-relative mt-3">
                 
                     <p class="display-3 text-dark animated slideInUp fs-6">Quality video lectures can set your course apart. Use our resources to learn the basics.</p>
                     <a class="" target="_blank" rel="nofollow" href="https://community.udemy.com/t5/Instructor-Community/ct-p/Community">Get Started &rarr;</a>
@@ -87,21 +87,18 @@
                         <source src="{{cours.video.url}}" type="video/mp4">
                     </video>
                     <div class="mb-3 mt-5 w-75">
-                
-                        <input type="number" class="form-control" name="prix" placeholder="Price Course 0.00$ " value="{{cours.prix}}">
+                        <label for="" class="float-start">Prix :</label>
+                   <input type="number" class="form-control" name="prix" placeholder="Price Course 0.00$ " value="{{cours.prix}}">
                     </div>
                     <div class="mb-3 w-75">
-                        
+                        <label for="" class="float-start">Duration :</label>
                         <input type="number" class="form-control" name="duration" placeholder="Duration Course " value="{{cours.duration}}">
                     </div>
                     <div class="mb-3 w-75 border p-2">
                         
                         {{f.cover}}           
                     </div>
-                    <div class="mb-3 w-75 border p-2">
-                        <label for="formFileSm" class="form-label">Update your course video</label>
-                        {{f.video}}
-                    </div>
+                    
                 </div>
                 
             
@@ -109,6 +106,10 @@
             </div>
             
         </div>
+        <div class="mb-3 w-75 border p-5 bg-white">
+                        <label for="formFileSm" class="form-label fs-2">Update your course video :</label><br>
+                        {{f.video}}
+                    </div>
     </form>
         <!-- Color System -->
         
