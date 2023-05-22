@@ -1,2 +1,2 @@
-pillow==9.5.3
+pillow==9.5.0
 openai==0.27.7

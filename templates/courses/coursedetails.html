@@ -1,10 +1,17 @@
 {% extends 'base/navbar.html' %}
 {% block nav %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>  
     {% include 'base/coursesHeader.html' %}
     <title>{{cours.titre}}</title></head>
+    <style>
+        .page-header {
+                background-image:url('{% static 'img/carousel-1.png' %}')
+
+        }
+    </style>
 <body>
     
     

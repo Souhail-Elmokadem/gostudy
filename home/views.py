@@ -6,7 +6,14 @@ import os,openai
 # openai key
 
 
+
+
+
 # Create your views here.
+
+
+
+
 def index(request):
     
    
@@ -41,3 +48,5 @@ def ai(request):
         except Exception as e:
             msg = e
     return render(request,'home/ai.html',{'e':msg})
+
+
